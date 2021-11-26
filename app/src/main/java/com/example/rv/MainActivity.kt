@@ -19,9 +19,6 @@ class MainActivity : AppCompatActivity() {
         data.apply {
             add(ItemsViewModel(image = R.drawable.ic_launcher_background, text = "안녕"))
             add(ItemsViewModel(image = R.drawable.blue, text = "ㄴ"))
-            add(ItemsViewModel(image = R.drawable.ic_launcher_background, text = "ㅇ"))
-            add(ItemsViewModel(image = R.drawable.ic_launcher_background, text = "ㅁ"))
-
         }
 
         val adapter = CustomAdapter(data)
