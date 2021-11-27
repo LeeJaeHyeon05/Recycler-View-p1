@@ -1,35 +1,33 @@
 package com.example.rv
 
+import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import java.util.Date.from
 
-class CustomAdapter (private val mList: List<ItemsViewModel>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
-
+class CustomAdapter(private val mList: List<ItemsViewModel>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomAdapter.ViewHolder {
-
-        val view  = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_list, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_list, parent, false )
 
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: CustomAdapter.ViewHolder, position: Int) {
+        val ItemsViewModel = mList[position]
+
+        holder.imageView.setImageResource(ItemsViewModel.image)
+        holder.textView.text = ItemsViewModel.text
 
 
-        val itemsViewModel = mList[position]
-
-
-        // sets the image to the imageview from our itemHolder class
-        holder.rv_button.setImageResource(itemsViewModel.image)
-
-        // sets the text to the textview from our itemHolder class
-        holder.textView.text = itemsViewModel.text
 
     }
 
@@ -37,8 +35,9 @@ class CustomAdapter (private val mList: List<ItemsViewModel>) : RecyclerView.Ada
         return mList.size
     }
 
-    class ViewHolder(ItemView:View) : RecyclerView.ViewHolder(ItemView) {
-        val rv_button: ImageButton = itemView.findViewById(R.id.rv_button)
-        val textView: TextView = itemView.findViewById(R.id.textView)
+    class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
+
+        val imageView: ImageView = itemView.findViewById(R.id.rv_button)
+        val textView: TextView = itemView.findViewById(R.id.rv_textView)
     }
 }

@@ -10,16 +10,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         val data = ArrayList<ItemsViewModel>()
 
-        data.apply {
-            add(ItemsViewModel(image = R.drawable.ic_launcher_background, text = "안녕"))
-            add(ItemsViewModel(image = R.drawable.blue, text = "ㄴ"))
-        }
+        data.add(ItemsViewModel(R.drawable.blue, "안녕하세요"))
+        data.add(ItemsViewModel(R.drawable.blue, "반갑습니다"))
+        data.add(ItemsViewModel(R.drawable.blue, "환영합니다"))
+        data.add(ItemsViewModel(R.drawable.blue, "사랑합니다"))
 
         val adapter = CustomAdapter(data)
 
