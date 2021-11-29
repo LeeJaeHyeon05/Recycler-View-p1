@@ -1,5 +1,6 @@
 package com.example.rv
 
+import android.graphics.Rect
 import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
@@ -12,11 +13,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import java.util.Date.from
 
+
 class CustomAdapter(private val mList: List<ItemsViewModel>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_list, parent, false )
+
 
         return ViewHolder(view)
     }
@@ -24,17 +27,31 @@ class CustomAdapter(private val mList: List<ItemsViewModel>) : RecyclerView.Adap
     override fun onBindViewHolder(holder: CustomAdapter.ViewHolder, position: Int) {
         val ItemsViewModel = mList[position]
 
+
+
         holder.imageView.setImageResource(ItemsViewModel.image)
         holder.textView.text = ItemsViewModel.text
 
 
+    }
 
+
+    inner class HorizontalSpaceItemDecoration(private val horizontalSpaceItemDecoration: Int) : RecyclerView.ItemDecoration() {
+        override fun getItemOffsets(
+            outRect: Rect,
+            view: View,
+            parent: RecyclerView,
+            state: RecyclerView.State
+        ) {
+            outRect.bottom = horizontalSpaceItemDecoration
+        }
 
 
     }
 
     override fun getItemCount(): Int {
         return mList.size
+
     }
 
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {

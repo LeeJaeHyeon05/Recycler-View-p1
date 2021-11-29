@@ -14,17 +14,13 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
 
-        recyclerView.layoutManager = object : LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false) {
-            override fun canScrollHorizontally(): Boolean {
-                return false
-            }
-        }
+        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         val data = ArrayList<ItemsViewModel>()
 
-        data.add(ItemsViewModel(R.drawable.blue, "안녕하세요"))
-        data.add(ItemsViewModel(R.drawable.blue, "반갑습니다"))
-        data.add(ItemsViewModel(R.drawable.blue, "환영합니다"))
+        data.add(ItemsViewModel(R.drawable.ic_launcher_background, "안녕하세요"))
+        data.add(ItemsViewModel(R.drawable.ic_launcher_background, "반갑습니다"))
+        data.add(ItemsViewModel(R.drawable.ic_launcher_background, "환영합니다"))
 
 
 
@@ -35,3 +31,9 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+
+//{
+//    override fun canScrollHorizontally(): Boolean {
+//        return false
+//    }
+//}
