@@ -12,9 +12,11 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import java.util.Date.from
+import kotlin.coroutines.coroutineContext
 
 
 class CustomAdapter(private val mList: List<ItemsViewModel>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -22,7 +24,10 @@ class CustomAdapter(private val mList: List<ItemsViewModel>) : RecyclerView.Adap
 
 
         return ViewHolder(view)
+
+
     }
+
 
     override fun onBindViewHolder(holder: CustomAdapter.ViewHolder, position: Int) {
         val ItemsViewModel = mList[position]
@@ -32,18 +37,17 @@ class CustomAdapter(private val mList: List<ItemsViewModel>) : RecyclerView.Adap
         holder.imageView.setImageResource(ItemsViewModel.image)
         holder.textView.text = ItemsViewModel.text
 
-
     }
 
-
-    inner class HorizontalSpaceItemDecoration(private val horizontalSpaceItemDecoration: Int) : RecyclerView.ItemDecoration() {
+    //아이템 관련 줄이기
+    class HorizontalSpaceItemDecoration(private val horizontalSpaceItemDecoration: Int) : RecyclerView.ItemDecoration() {
         override fun getItemOffsets(
             outRect: Rect,
             view: View,
             parent: RecyclerView,
             state: RecyclerView.State
         ) {
-            outRect.bottom = horizontalSpaceItemDecoration
+            outRect.right = horizontalSpaceItemDecoration
         }
 
 

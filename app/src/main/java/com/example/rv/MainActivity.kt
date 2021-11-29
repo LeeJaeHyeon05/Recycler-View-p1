@@ -14,6 +14,9 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
 
+        val spaceDecoration = CustomAdapter.HorizontalSpaceItemDecoration(1)
+        recyclerView.addItemDecoration(spaceDecoration)
+
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         val data = ArrayList<ItemsViewModel>()
