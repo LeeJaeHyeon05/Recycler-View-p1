@@ -22,24 +22,18 @@ class CustomAdapter(private val mList: List<ItemsViewModel>) : RecyclerView.Adap
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_list, parent, false )
 
-
         return ViewHolder(view)
-
-
     }
 
 
     override fun onBindViewHolder(holder: CustomAdapter.ViewHolder, position: Int) {
         val ItemsViewModel = mList[position]
 
-
-
         holder.imageView.setImageResource(ItemsViewModel.image)
         holder.textView.text = ItemsViewModel.text
-
     }
 
-    //아이템 관련 줄이기
+    //아이템 관련 줄이긴줄 알았는데 알고 보니 늘리기
     class HorizontalSpaceItemDecoration(private val horizontalSpaceItemDecoration: Int) : RecyclerView.ItemDecoration() {
         override fun getItemOffsets(
             outRect: Rect,
@@ -49,17 +43,13 @@ class CustomAdapter(private val mList: List<ItemsViewModel>) : RecyclerView.Adap
         ) {
             outRect.right = horizontalSpaceItemDecoration
         }
-
-
     }
 
     override fun getItemCount(): Int {
         return mList.size
-
     }
 
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
-
         val imageView: ImageView = itemView.findViewById(R.id.rv_button)
         val textView: TextView = itemView.findViewById(R.id.rv_textView)
     }
