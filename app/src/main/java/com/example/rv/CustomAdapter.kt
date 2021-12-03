@@ -33,10 +33,7 @@ class CustomAdapter(private val mList: List<ItemsViewModel>) : RecyclerView.Adap
         holder.imageView.setImageResource(ItemsViewModel.image)
         holder.textView.text = ItemsViewModel.text
 
-
-
     }
-
 
     //간격 늘리기
     class HorizontalSpaceItemDecoration(private val horizontalSpaceItemDecoration: Int) : RecyclerView.ItemDecoration() {
@@ -49,6 +46,17 @@ class CustomAdapter(private val mList: List<ItemsViewModel>) : RecyclerView.Adap
             outRect.right = horizontalSpaceItemDecoration
         }
     }
+
+//    class HeightSpaceItemDecoration(private val heightSpaceItemDecoration: Int) : RecyclerView.ItemDecoration() {
+//        override fun getItemOffsets(
+//            outRect: Rect,
+//            view: View,
+//            parent: RecyclerView,
+//            state: RecyclerView.State
+//        ) {
+//            outRect.bottom = heightSpaceItemDecoration
+//        }
+//    }
 
     override fun getItemCount(): Int {
         return mList.size
