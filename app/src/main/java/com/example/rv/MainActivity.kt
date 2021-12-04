@@ -25,8 +25,8 @@ class MainActivity : AppCompatActivity() {
 
 
         //위 아래 간격 늘리기
-//        val spaceDecoration2 = CustomAdapter.HeightSpaceItemDecoration(10)
-//        recyclerView.addItemDecoration(spaceDecoration2)
+        val spaceDecoration2 = CustomAdapter.TopSpaceItemDecoration(-190)
+        recyclerView.addItemDecoration(spaceDecoration2)
 
 
         //그리드 레이아웃, 갯수 설정

@@ -47,16 +47,16 @@ class CustomAdapter(private val mList: List<ItemsViewModel>) : RecyclerView.Adap
         }
     }
 
-//    class HeightSpaceItemDecoration(private val heightSpaceItemDecoration: Int) : RecyclerView.ItemDecoration() {
-//        override fun getItemOffsets(
-//            outRect: Rect,
-//            view: View,
-//            parent: RecyclerView,
-//            state: RecyclerView.State
-//        ) {
-//            outRect.bottom = heightSpaceItemDecoration
-//        }
-//    }
+    class TopSpaceItemDecoration(private val TopSpaceItemDecoration: Int) : RecyclerView.ItemDecoration() {
+        override fun getItemOffsets(
+            outRect: Rect,
+            view: View,
+            parent: RecyclerView,
+            state: RecyclerView.State
+        ) {
+            outRect.top = TopSpaceItemDecoration
+        }
+    }
 
     override fun getItemCount(): Int {
         return mList.size
